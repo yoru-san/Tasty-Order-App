@@ -4,7 +4,7 @@ var app = {
     },
 
     onDeviceReady: function() {
-        
+        getStarters();
     }
 };
 

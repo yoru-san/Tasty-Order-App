@@ -4,8 +4,25 @@ var app = {
     },
 
     onDeviceReady: function() {
-        
+        getOrders();        
     }
 };
+
+function getOrders() {
+    $( document ).ready(function() {
+        $.ajax({
+            url: "http://" + IP_API + "/api/orders",
+            method: 'GET',
+            dataType: "json"
+        }).done(function(data) {
+            data.forEach(order => {
+                $("#orders").append(`<div class="col-12 text-center"><a href="menu.html"><button type="button" class="btn btn-primary">Table ${order.tableNumber}</button></a></div>`);
+            }) 
+        }).fail(function () {
+            console.log("failed to fetch orders");
+        });
+    });
+    
+}
 
 app.initialize();

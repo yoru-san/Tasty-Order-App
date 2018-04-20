@@ -7,5 +7,9 @@ var app = {
         
     }
 };
-
+function validateOrder() {
+    console.log('------------------------------------');
+    console.log("order validated");
+    console.log('------------------------------------');
+}
 app.initialize();

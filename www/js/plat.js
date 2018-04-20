@@ -11,7 +11,7 @@ var app = {
 function getDishes() {
     $( document ).ready(function() {
         $.ajax({
-            url: "http://" + IP_API + "/api/courses",
+            url: "http://" + IP_API + "/api/courses?type=Dish",
             method: 'GET',
             dataType: "json"
         }).done(function(data) {

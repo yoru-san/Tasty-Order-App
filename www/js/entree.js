@@ -11,7 +11,7 @@ var app = {
 function getStarters() {
     $( document ).ready(function() {
         $.ajax({
-            url: "http://" + IP_API + "/api/courses",
+            url: "http://" + IP_API + "/api/courses?type=Starter",
             method: 'GET',
             dataType: "json"
         }).done(function(data) {
@@ -19,7 +19,7 @@ function getStarters() {
                 if (starter.disponibility)
                     $("#starters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary">${starter.name}</button></a></div>`);
                 else 
-                    $("#starters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary disabled">${starter.name}</button></a></div>`);
+                    $("#starters").append(`<div class="col-12 text-center"><a><button type="button" class="btn disabled">${starter.name}</button></a></div>`);
             });
         }).fail(function () {
             console.log("failed to fetch starters");

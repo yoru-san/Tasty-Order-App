@@ -15,8 +15,6 @@ function getWaiters() {
             method: 'GET',
             dataType: "json"
         }).done(function(data) {
-            console.log("serveurs");
-            console.log(data);
             data.forEach(waiter => {
                 $("#waiters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary">${waiter.name}</button></a></div>`);
             });

@@ -103,6 +103,19 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-.commande {
+.commande, .waiter {
      margin-top: 10px;
+}
+
+.menu a {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.menu div {
+    margin-bottom: 20px;
+}
+
+.entree, .boisson, .plat, .dessert {
+    margin-bottom: 20px;
 }

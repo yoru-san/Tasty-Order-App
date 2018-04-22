@@ -17,9 +17,9 @@ function getStarters() {
         }).done(function(data) {
             data.forEach(starter => {
                 if (starter.disponibility)
-                    $("#starters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary">${starter.name}</button></a></div>`);
+                    $("#starters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg entree">${starter.name}</button></a></div>`);
                 else 
-                    $("#starters").append(`<div class="col-12 text-center"><a><button type="button" class="btn disabled">${starter.name}</button></a></div>`);
+                    $("#starters").append(`<div class="col-12 text-center"><a><button type="button" class="btn  btn-lg disabled entree">${starter.name}</button></a></div>`);
             });
         }).fail(function () {
             console.log("failed to fetch starters");

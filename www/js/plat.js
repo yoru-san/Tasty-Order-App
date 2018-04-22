@@ -17,9 +17,9 @@ function getDishes() {
         }).done(function(data) {
             data.forEach(dish => {
                 if (dish.disponibility)
-                $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary">${dish.name}</button></a></div>`);
+                $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg plat">${dish.name}</button></a></div>`);
             else 
-                $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary disabled">${dish.name}</button></a></div>`);
+                $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg disabled plat">${dish.name}</button></a></div>`);
             });
         }).fail(function () {
             console.log("failed to fetch dishes");

@@ -16,7 +16,7 @@ function getWaiters() {
             dataType: "json"
         }).done(function(data) {
             data.forEach(waiter => {
-                $("#waiters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary">${waiter.name}</button></a></div>`);
+                $("#waiter").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg waiter">${waiter.name}</button></a></div>`);
             });
         }).fail(function () {
             console.log("failed to fetch waiters");

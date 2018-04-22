@@ -16,10 +16,14 @@ function getStarters() {
             dataType: "json"
         }).done(function(data) {
             data.forEach(starter => {
-                if (starter.disponibility)
+                if (starter.disponibility) {
+                    $("#starters").append(`<div class="col-12 text-center"><img src="${starter.image}" class="courses-img"></div>`);
                     $("#starters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg entree">${starter.name}</button></a></div>`);
-                else 
+                }
+                else {
+                    $("#starters").append(`<div class="col-12 text-center"><img src="${starter.image}" class="disabled-img"></div>`);
                     $("#starters").append(`<div class="col-12 text-center"><a><button type="button" class="btn  btn-lg disabled entree">${starter.name}</button></a></div>`);
+                }
             });
         }).fail(function () {
             console.log("failed to fetch starters");

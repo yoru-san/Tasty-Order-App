@@ -119,3 +119,14 @@ h1 {
 .entree, .boisson, .plat, .dessert {
     margin-bottom: 20px;
 }
+
+.courses-img {
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+.disabled-img {
+    height: 100px;
+    filter: grayscale(100%);
+    margin-bottom: 5px;
+}

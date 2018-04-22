@@ -16,10 +16,14 @@ function getDishes() {
             dataType: "json"
         }).done(function(data) {
             data.forEach(dish => {
-                if (dish.disponibility)
+                if (dish.disponibility) {
+                $("#dishes").append(`<div class="col-12 text-center"><img src="${dish.image}" class="courses-img"></div>`);
                 $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg plat">${dish.name}</button></a></div>`);
-            else 
+            }
+            else {
+                $("#dishes").append(`<div class="col-12 text-center"><img src="${dish.image}" class="disabled-img"></div>`);
                 $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg disabled plat">${dish.name}</button></a></div>`);
+            }
             });
         }).fail(function () {
             console.log("failed to fetch dishes");

@@ -18,7 +18,7 @@ function getDesserts() {
             data.forEach(dessert => {
                 if (dessert.disponibility) {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="courses-img"></div>`);
-                    $("#desserts").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg dessert">${dessert.name}</button></a></div>`);
+                    $("#desserts").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg dessert" onclick="addDesserts(${dessert._id});">${dessert.name}</button></a></div>`);
                 }
                 else {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="disabled-img"></div>`);
@@ -29,6 +29,10 @@ function getDesserts() {
             console.log("failed to fetch desserts");
         });
     });
+}
+
+function addDesserts(id) {
+    $("#selected-desserts").append("<input type=\"hidden\" name=\"desserts[]\" value=\"" + id + "\">");
 }
 
 app.initialize();

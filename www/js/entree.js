@@ -18,11 +18,11 @@ function getStarters() {
             data.forEach(starter => {
                 if (starter.disponibility) {
                     $("#starters").append(`<div class="col-12 text-center"><img src="${starter.image}" class="courses-img"></div>`);
-                    $("#starters").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg entree">${starter.name}</button></a></div>`);
+                    $("#starters").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg entree" onclick="addStarters('${starter._id}');">${starter._id}</button></div>`);
                 }
                 else {
                     $("#starters").append(`<div class="col-12 text-center"><img src="${starter.image}" class="disabled-img"></div>`);
-                    $("#starters").append(`<div class="col-12 text-center"><a><button type="button" class="btn  btn-lg disabled entree">${starter.name}</button></a></div>`);
+                    $("#starters").append(`<div class="col-12 text-center"><button type="button" class="btn btn-lg disabled entree">${starter.name}</button></div>`);
                 }
             });
         }).fail(function () {
@@ -30,4 +30,19 @@ function getStarters() {
         });
     });
 }
+
+var starters = [];
+function addStarters(id) {
+    var selectedStarter = $("#selected-starters").append(`<input type="hidden" name="starters[]" id="selected-starter" value="${id}">`);
+            starters.push(selectedStarter);
+
+            starters.forEach(starter => {
+                console.log('------------------------------------');
+                console.log(starter);
+                console.log('------------------------------------');
+            });
+}
+
+
+
 app.initialize();

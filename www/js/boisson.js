@@ -7,6 +7,7 @@ var app = {
         getDrinks();
     }
 };
+
 function getDrinks() {
     $( document ).ready(function() {
         $.ajax({
@@ -17,7 +18,7 @@ function getDrinks() {
             data.forEach(drink => {
                 if (drink.disponibility) {
                 $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="courses-img"></div>`);
-                $("#drinks").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg boisson">${drink.name}</button></a></div>`);
+                $("#drinks").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg boisson" id="selected-drinks" onclick="addDrinks(${drink._id});">${drink.name}</button></a></div>`);
             }
             else {
                 $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="disabled-img"></div>`);
@@ -28,6 +29,10 @@ function getDrinks() {
             console.log("failed to fetch dishes");
         });
     });
+}
+
+function addDrinks(id) {
+    $("#selected-drinks").append("<input type=\"hidden\" name=\"drinks[]\" value=\"" + id + "\">");
 }
 
 app.initialize();

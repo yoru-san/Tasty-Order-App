@@ -18,7 +18,7 @@ function getDishes() {
             data.forEach(dish => {
                 if (dish.disponibility) {
                 $("#dishes").append(`<div class="col-12 text-center"><img src="${dish.image}" class="courses-img"></div>`);
-                $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg plat" onclick="addDishes(dish._id);">${dish.name}</button></a></div>`);
+                $("#dishes").append(`<div class="col-12 text-center"><button type="button" class="btn btn-primary btn-lg plat" onclick="addDishes('${dish._id}');">${dish.name}</button></div>`);
             }
             else {
                 $("#dishes").append(`<div class="col-12 text-center"><img src="${dish.image}" class="disabled-img"></div>`);
@@ -31,8 +31,13 @@ function getDishes() {
     });
 }
 
+var plats = [];
 function addDishes(id) {
-    $("#selected-dishes").append("<input type=\"hidden\" name=\"dishes[]\" value=\"" + id + "\">");    
+        //$("#selected-dishes").append("<input type=\"hidden\" name=\"dishes[]\" value=\"" + id + "\">");    
+        plats.push(id);
+        plats.forEach(plat => {
+        console.log(plat);
+    });
 }
 
 app.initialize();

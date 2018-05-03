@@ -18,7 +18,7 @@ function getDrinks() {
             data.forEach(drink => {
                 if (drink.disponibility) {
                 $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="courses-img"></div>`);
-                $("#drinks").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg boisson" id="selected-drinks" onclick="addDrinks(${drink._id});">${drink.name}</button></a></div>`);
+                $("#drinks").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg boisson" id="selected-drinks" onclick="addDrinks('${drink._id}');">${drink.name}</button></div>`);
             }
             else {
                 $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="disabled-img"></div>`);
@@ -31,8 +31,14 @@ function getDrinks() {
     });
 }
 
+var drinks = [];
 function addDrinks(id) {
-    $("#selected-drinks").append("<input type=\"hidden\" name=\"drinks[]\" value=\"" + id + "\">");
+    drinks.push(id);
+    
+    drinks.forEach(drink => {
+        console.log(drink);
+    });
 }
+
 
 app.initialize();

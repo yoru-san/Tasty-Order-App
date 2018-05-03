@@ -2,7 +2,7 @@ var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-
+    
     onDeviceReady: function() {
         getStarters();
     }
@@ -27,22 +27,19 @@ function getStarters() {
             });
         }).fail(function () {
             console.log("failed to fetch starters");
+
         });
     });
 }
 
 var starters = [];
 function addStarters(id) {
-    var selectedStarter = $("#selected-starters").append(`<input type="hidden" name="starters[]" id="selected-starter" value="${id}">`);
-            starters.push(selectedStarter);
-
-            starters.forEach(starter => {
-                console.log('------------------------------------');
-                console.log(starter);
-                console.log('------------------------------------');
-            });
+    //var selectedStarter = $("#selected-starters").append(`<input type="hidden" name="starters[]" id="selected-starter" value="${id}">`);
+    starters.push(id);
+    
+    starters.forEach(starter => {
+        console.log(starter);
+    });
 }
-
-
 
 app.initialize();

@@ -18,7 +18,7 @@ function getDesserts() {
             data.forEach(dessert => {
                 if (dessert.disponibility) {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="courses-img"></div>`);
-                    $("#desserts").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg dessert" onclick="addDesserts(${dessert._id});">${dessert.name}</button></a></div>`);
+                    $("#desserts").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg dessert" onclick="addDesserts('${dessert._id}');">${dessert.name}</button></div>`);
                 }
                 else {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="disabled-img"></div>`);
@@ -31,8 +31,13 @@ function getDesserts() {
     });
 }
 
+var desserts = [];
 function addDesserts(id) {
-    $("#selected-desserts").append("<input type=\"hidden\" name=\"desserts[]\" value=\"" + id + "\">");
+    desserts.push(id);
+    
+    desserts.forEach(dessert => {
+        console.log(dessert);
+    });
 }
 
 app.initialize();

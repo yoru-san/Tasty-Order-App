@@ -2,7 +2,7 @@ var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-
+    
     onDeviceReady: function() {
         getDrinks();
     }
@@ -18,13 +18,13 @@ function getDrinks() {
         }).done(function(data) {
             data.forEach(drink => {
                 if (drink.disponibility) {
-                $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="courses-img"></div>`);
-                $("#drinks").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg boisson" id="selected-drinks" onclick="addDrinks('${drink._id}');">${drink.name}</button></div>`);
-            }
-            else {
-                $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="disabled-img"></div>`);
-                $("#drinks").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg disabled boisson">${drink.name}</button></a></div>`);
-            }
+                    $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="courses-img"></div>`);
+                    $("#drinks").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg boisson" id="selected-drinks" onclick="addDrinks('${drink.name}');">${drink.name}</button></div>`);
+                }
+                else {
+                    $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="disabled-img"></div>`);
+                    $("#drinks").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg disabled boisson">${drink.name}</button></a></div>`);
+                }
             });
         }).fail(function () {
             console.log("failed to fetch dishes");
@@ -33,8 +33,8 @@ function getDrinks() {
 }
 
 var drinks = []; 
-function addDrinks(id) {
-    drinks.push(id);
+function addDrinks(name) {
+    drinks.push(name);
     localStorage.setItem("drinks", JSON.stringify(drinks));
 }
 

@@ -2,7 +2,7 @@ var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-
+    
     onDeviceReady: function() {
         getDesserts();
     }
@@ -19,7 +19,7 @@ function getDesserts() {
             data.forEach(dessert => {
                 if (dessert.disponibility) {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="courses-img"></div>`);
-                    $("#desserts").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg dessert" onclick="addDesserts('${dessert._id}');">${dessert.name}</button></div>`);
+                    $("#desserts").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg dessert" onclick="addDesserts('${dessert.name}');">${dessert.name}</button></div>`);
                 }
                 else {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="disabled-img"></div>`);
@@ -34,8 +34,8 @@ function getDesserts() {
 
 
 var desserts = [];
-function addDesserts(id) {
-    desserts.push(id);
+function addDesserts(name) {
+    desserts.push(name);
     localStorage.setItem("desserts", JSON.stringify(desserts));
 }
 

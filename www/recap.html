@@ -4,6 +4,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello World</title>
@@ -11,12 +12,22 @@
 <body>
         <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="accueil.html">retour</a><button class="navbar-toggler" type="button"></button></nav>
-                recap
+                <form action="#">
+                        <select class="custom-select" id="numTable">
+                                <option selected>Table servie :</option>
+                                <option value="1">Table 1</option>
+                                <option value="2">Table 2</option>
+                                <option value="3">Table 3</option>
+                                <option value="3">Table 4</option>
+                                <option value="3">Table 5</option>
+                        </select>                        
+                </form>
+                <ul class="list-group" id="order"></ul>
                 <div class="row justify-content-center">
                         <a href="menu.html"><button type="button" class="btn btn-warning">Modifier</button></a>
                 </div>
                 <div class="row justify-content-center">
-                        <a><button type="button" class="btn btn-success" onclick="completeOrder();">Valider</button></a>
+                        <a><button type="button" class="btn btn-success" onclick="postOrder();">Valider</button></a>
                 </div>
         </div>
         

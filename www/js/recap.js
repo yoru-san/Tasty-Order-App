@@ -4,31 +4,19 @@ var app = {
     },
 
     onDeviceReady: function() {
-        //completeOrder();
+        displayRecap();
     }
 };
-function completeOrder () {
-    var order = [];
-    var startersSelected = JSON.parse(localStorage.getItem("starters"));
-    var dishesSelected = JSON.parse(localStorage.getItem("dishes"));
-    var dessertsSelected = JSON.parse(localStorage.getItem("desserts"));
-    var drinksSelected = JSON.parse(localStorage.getItem("drinks"));
 
-    console.log('------------------------------------');
-    console.log(startersSelected);
-    console.log('------------------------------------');
+function displayRecap() {
+ var finalOrder = JSON.parse(localStorage.getItem("order"));
+ 
+ finalOrder.forEach(element => {
+     $("#order").append(`<li class="list-group-item">${element}<i class="fas fa-times"></i></li>`)
+ });
+}
 
-    startersSelected.forEach(starter => {
-        order.push(starter);
-    });
-    dishesSelected.forEach(dish => {
-        order.push(dish);
-    });
-    dessertsSelected.forEach(dessert => {
-        order.push(dessert);
-    });
-    drinksSelected.forEach(drink => {
-        order.push(drink);
-    });
+function postOrder() {
+    
 }
 app.initialize();

@@ -31,6 +31,14 @@ function completeOrder() {
     drinksSelected.forEach(drink => {
         order.push(drink);
     });
+
+    order.forEach(element => {
+        console.log('------------------------------------');
+        console.log(element);
+        console.log('------------------------------------');
+    });
+
+    localStorage.setItem("order", JSON.stringify(order));
 }
 
 app.initialize();

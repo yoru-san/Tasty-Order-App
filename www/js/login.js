@@ -16,7 +16,6 @@ function getWaiters() {
             method: 'GET',
             dataType: "json"
         }).done(function(data) {
-            localStorage.removeItem("IP_API");
             data.forEach(waiter => {
                 $("#waiter").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg waiter">${waiter.name}</button></a></div>`);
             });

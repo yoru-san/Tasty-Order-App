@@ -10,6 +10,7 @@ var app = {
 
 function getDesserts() {
     $( document ).ready(function() {
+        var IP_API = localStorage.getItem("IP_API");
         $.ajax({
             url: "http://" + IP_API + "/api/courses?type=Dessert",
             method: 'GET',

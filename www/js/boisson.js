@@ -32,9 +32,10 @@ function getDrinks() {
     });
 }
 
+var drinks = []; 
 function addDrinks(id) {
-    DRINKS.push(id);
+    drinks.push(id);
+    localStorage.setItem("drinks", JSON.stringify(drinks));
 }
-
 
 app.initialize();

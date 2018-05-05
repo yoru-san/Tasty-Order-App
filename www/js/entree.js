@@ -19,7 +19,7 @@ function getStarters() {
             data.forEach(starter => {
                 if (starter.disponibility) {
                     $("#starters").append(`<div class="col-12 text-center"><img src="${starter.image}" class="courses-img"></div>`);
-                    $("#starters").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg entree" onclick="addStarters('${starter._id}');">${starter._id}</button></div>`);
+                    $("#starters").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg entree" onclick="addStarters('${starter._id}');">${starter.name}</button></div>`);
                 }
                 else {
                     $("#starters").append(`<div class="col-12 text-center"><img src="${starter.image}" class="disabled-img"></div>`);
@@ -33,8 +33,10 @@ function getStarters() {
     });
 }
 
+var starters = [];
 function addStarters(id) {
-    STARTERS.push(id);
+    starters.push(id);
+    localStorage.setItem("starters", JSON.stringify(starters));
 }
 
 app.initialize();

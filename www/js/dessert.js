@@ -32,8 +32,11 @@ function getDesserts() {
     });
 }
 
+
+var desserts = [];
 function addDesserts(id) {
-    DESSERTS.push(id);
+    desserts.push(id);
+    localStorage.setItem("desserts", JSON.stringify(desserts));
 }
 
 app.initialize();

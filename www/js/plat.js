@@ -31,9 +31,11 @@ function getDishes() {
         });
     });
 }
+
+var dishes = [];
 function addDishes(id) {
-        //$("#selected-dishes").append("<input type=\"hidden\" name=\"dishes[]\" value=\"" + id + "\">");    
-        DISHES.push(id);
+    dishes.push(id);
+    localStorage.setItem("dishes", JSON.stringify(dishes));
 }
 
 app.initialize();

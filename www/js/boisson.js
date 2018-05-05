@@ -31,13 +31,8 @@ function getDrinks() {
     });
 }
 
-var drinks = [];
 function addDrinks(id) {
-    drinks.push(id);
-    
-    drinks.forEach(drink => {
-        console.log(drink);
-    });
+    DRINKS.push(id);
 }
 
 

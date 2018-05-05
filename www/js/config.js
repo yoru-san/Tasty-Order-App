@@ -1,8 +1,7 @@
-var IP_API;
-$("#form-ip").submit(function() {
-    IP_API = $("#ip").val();
-}); 
-    
-console.log('------------------------------------');
-console.log(IP_API);
-console.log('------------------------------------');
+// localStorage.setItem("ORDERS");
+// localStorage.setItem("STARTERS");
+// localStorage.setItem("DISHES");
+// localStorage.setItem("DESSERTS");
+// localStorage.setItem("DRINKS");
+
+

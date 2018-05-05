@@ -32,14 +32,8 @@ function getStarters() {
     });
 }
 
-var starters = [];
 function addStarters(id) {
-    //var selectedStarter = $("#selected-starters").append(`<input type="hidden" name="starters[]" id="selected-starter" value="${id}">`);
-    starters.push(id);
-    
-    starters.forEach(starter => {
-        console.log(starter);
-    });
+    STARTERS.push(id);
 }
 
 app.initialize();

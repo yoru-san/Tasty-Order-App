@@ -31,13 +31,8 @@ function getDesserts() {
     });
 }
 
-var desserts = [];
 function addDesserts(id) {
-    desserts.push(id);
-    
-    desserts.forEach(dessert => {
-        console.log(dessert);
-    });
+    DESSERTS.push(id);
 }
 
 app.initialize();

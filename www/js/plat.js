@@ -30,14 +30,9 @@ function getDishes() {
         });
     });
 }
-
-var plats = [];
 function addDishes(id) {
         //$("#selected-dishes").append("<input type=\"hidden\" name=\"dishes[]\" value=\"" + id + "\">");    
-        plats.push(id);
-        plats.forEach(plat => {
-        console.log(plat);
-    });
+        DISHES.push(id);
 }
 
 app.initialize();

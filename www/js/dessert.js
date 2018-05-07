@@ -8,6 +8,7 @@ var app = {
     }
 };
 
+var desserts = [];
 function getDesserts() {
     $( document ).ready(function() {
         var IP_API = localStorage.getItem("IP_API");
@@ -16,10 +17,11 @@ function getDesserts() {
             method: 'GET',
             dataType: "json"
         }).done(function(data) {
+            desserts = data;
             data.forEach(dessert => {
                 if (dessert.disponibility) {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="courses-img"></div>`);
-                    $("#desserts").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg dessert" onclick="addDesserts('${dessert.name}');">${dessert.name}</button></div>`);
+                    $("#desserts").append(`<div class="col-12 text-center"><button type="submit" class="btn btn-primary btn-lg dessert" onclick="addDesserts('${dessert._id}');">${dessert.name}</button></div>`);
                 }
                 else {
                     $("#desserts").append(`<div class="col-12 text-center"><img src="${dessert.image}" class="disabled-img"></div>`);
@@ -33,10 +35,10 @@ function getDesserts() {
 }
 
 
-var desserts = [];
-function addDesserts(name) {
-    desserts.push(name);
-    localStorage.setItem("desserts", JSON.stringify(desserts));
+var orderedDesserts = [];
+function addDesserts(dessertId) {
+    orderedDesserts.push(desserts.find(x => x._id == dessertId));
+    localStorage.setItem("desserts", JSON.stringify(orderedDesserts));
 }
 
 app.initialize();

@@ -8,6 +8,7 @@ var app = {
     }
 };
 
+var dishes = [];
 function getDishes() {
     $( document ).ready(function() {
         var IP_API = localStorage.getItem("IP_API");
@@ -16,10 +17,11 @@ function getDishes() {
             method: 'GET',
             dataType: "json"
         }).done(function(data) {
+            dishes = data;
             data.forEach(dish => {
                 if (dish.disponibility) {
                     $("#dishes").append(`<div class="col-12 text-center"><img src="${dish.image}" class="courses-img"></div>`);
-                    $("#dishes").append(`<div class="col-12 text-center"><button type="button" class="btn btn-primary btn-lg plat" onclick="addDishes('${dish.name}');">${dish.name}</button></div>`);
+                    $("#dishes").append(`<div class="col-12 text-center"><button type="button" class="btn btn-primary btn-lg plat" onclick="addDishes('${dish._id}');">${dish.name}</button></div>`);
                 }
                 else {
                     $("#dishes").append(`<div class="col-12 text-center"><img src="${dish.image}" class="disabled-img"></div>`);
@@ -32,10 +34,10 @@ function getDishes() {
     });
 }
 
-var dishes = [];
-function addDishes(name) {
-    dishes.push(name);
-    localStorage.setItem("dishes", JSON.stringify(dishes));
+var orderedDishes = [];
+function addDishes(dishId) {
+    orderedDishes.push(dishes.find(x => x._id == dishId));
+    localStorage.setItem("dishes", JSON.stringify(orderedDishes));
 }
 
 app.initialize();

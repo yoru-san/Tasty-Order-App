@@ -10,6 +10,7 @@ var app = {
         localStorage.removeItem("drinks");
         localStorage.removeItem("order");
         localStorage.removeItem("IP_API");
+        localStorage.removeItem("waiterId");        
         
         $("#form-ip").submit(function(e) {
             localStorage.setItem("IP_API", $("#ip").val() + ":8080");

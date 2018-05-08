@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>Récapitulatif</title>
 </head>
 <body>
         <div class="container">
@@ -20,21 +20,25 @@
                                 <option value="3">Table 3</option>
                                 <option value="4">Table 4</option>
                                 <option value="5">Table 5</option>
-                        </select>                        
+                        </select>
+                        <br>
+                        <div class="row" id="priceDisplay">
+                                <span>Prix total :</span><br>
+                        </div>
+                        
                 </form>
                 <ul class="list-group" id="order"></ul>
                 <div class="row justify-content-center">
-                        <a href="menu.html"><button type="button" class="btn btn-warning">Modifier</button></a>
+                        <a href="menu.html"><button type="button" class="btn btn-warning commande">Modifier</button></a>
                 </div>
                 <div class="row justify-content-center">
-                        <a><button type="button" class="btn btn-success" onclick="postOrder();">Valider</button></a>
+                        <a><button type="button" class="btn btn-success commande" onclick="postOrder();">Valider</button></a>
                 </div>
         </div>
         
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="js/config.js"></script>
         <script type="text/javascript" src="js/recap.js"></script>
 </body>
 </html>

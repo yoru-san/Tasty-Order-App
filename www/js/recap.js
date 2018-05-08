@@ -2,7 +2,7 @@ var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-
+    
     onDeviceReady: function() {
         displayRecap();
     }
@@ -11,22 +11,20 @@ var app = {
 var completeOrder = [];
 
 function displayRecap() {
- var finalOrder = JSON.parse(localStorage.getItem("order"));
- 
- finalOrder.forEach(element => {
-     completeOrder.push(element);
-     $("#order").append(`<li class="list-group-item" class="${element._id}">${element.name}<i class="fas fa-times" onclick="removeElement('${element._id}', this);"></i></li>`)
- });
-
-}
-function removeElement(elementId, htmlNode) {
-    console.log('------------------------------------');
-    var removedId = completeOrder.findIndex(x => x._id == elementId);
-    console.log(completeOrder.splice(removedId, 1));
-    console.log('------------------------------------');
-    completeOrder.forEach(element => {
-        console.log(element);
+    var totalPrice = 0;
+    var finalOrder = JSON.parse(localStorage.getItem("order"));
+    
+    finalOrder.forEach(element => {
+        totalPrice += element.prix;
+        completeOrder.push(element);
+        $("#order").append(`<li class="list-group-item" class="${element._id}">${element.name}<i class="fas fa-times" onclick="removeElement('${element._id}', this);"></i></li>`);
     });
+    $("#priceDisplay").append(`<input type="text" value="${totalPrice} &#8364" id="price" disabled>`)
+}
+
+function removeElement(elementId, htmlNode) {
+    var removedId = completeOrder.findIndex(x => x._id == elementId);
+    completeOrder.splice(removedId, 1);
     $(htmlNode).parent().remove();
 }
 
@@ -37,6 +35,7 @@ function postOrder() {
     data.tableNumber = $("#numTable").val();
     data.items = completeOrder;
     data.waiter = waiterId;
+    data.totalPrice = $("#price").val();
     
     $.ajax({
         type: "POST",

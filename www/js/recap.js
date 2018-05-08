@@ -15,9 +15,19 @@ function displayRecap() {
  
  finalOrder.forEach(element => {
      completeOrder.push(element);
-     $("#order").append(`<li class="list-group-item">${element.name}<i class="fas fa-times"></i></li>`)
+     $("#order").append(`<li class="list-group-item" class="${element._id}">${element.name}<i class="fas fa-times" onclick="removeElement('${element._id}', this);"></i></li>`)
  });
 
+}
+function removeElement(elementId, htmlNode) {
+    console.log('------------------------------------');
+    var removedId = completeOrder.findIndex(x => x._id == elementId);
+    console.log(completeOrder.splice(removedId, 1));
+    console.log('------------------------------------');
+    completeOrder.forEach(element => {
+        console.log(element);
+    });
+    $(htmlNode).parent().remove();
 }
 
 function postOrder() {

@@ -17,8 +17,8 @@ function getOrders() {
             dataType: "json"
         }).done(function(data) {
             data.forEach(order => {
-                $("#orders").append(`<div class="col-12 text-center"><a href="menu.html"><button type="button" class="btn btn-primary btn-lg commande">Table ${order.tableNumber}</button></a></div>`);
-            }) 
+                $("#orders").append(`<div class="col-12 text-center"><a href="facture.html?_id=${order._id}"><button type="button" class="btn btn-primary btn-lg commande">Table ${order.tableNumber}</button></a></div>`);
+            }); 
         }).fail(function () {
             console.log("failed to fetch orders");
         });

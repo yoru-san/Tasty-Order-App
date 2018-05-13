@@ -25,7 +25,7 @@ function getDishes() {
                 }
                 else {
                     $("#dishes").append(`<div class="col-12 text-center"><img src="${dish.image}" class="disabled-img"></div>`);
-                    $("#dishes").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg disabled plat">${dish.name}</button></a></div>`);
+                    $("#dishes").append(`<div class="col-12 text-center"><button type="button" class="btn btn-lg disabled plat">${dish.name}</button></div>`);
                 }
             });
         }).fail(function () {

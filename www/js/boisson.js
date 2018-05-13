@@ -25,7 +25,7 @@ function getDrinks() {
                 }
                 else {
                     $("#drinks").append(`<div class="col-12 text-center"><img src="${drink.image}" class="disabled-img"></div>`);
-                    $("#drinks").append(`<div class="col-12 text-center"><a href="accueil.html"><button type="button" class="btn btn-primary btn-lg disabled boisson">${drink.name}</button></a></div>`);
+                    $("#drinks").append(`<div class="col-12 text-center"><button type="button" class="btn btn-lg disabled boisson">${drink.name}</button></div>`);
                 }
             });
         }).fail(function () {

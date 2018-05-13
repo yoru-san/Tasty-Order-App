@@ -12,7 +12,7 @@ function getOrders() {
     var IP_API = localStorage.getItem("IP_API");
     $( document ).ready(function() {
         $.ajax({
-            url: "http://" + IP_API + "/api/orders",
+            url: "http://" + IP_API + "/api/orders?paid=false",
             method: 'GET',
             dataType: "json"
         }).done(function(data) {

@@ -34,7 +34,11 @@ function getDishes() {
     });
 }
 
+var savedDishes = JSON.parse(localStorage.getItem("dishes"));
 var orderedDishes = [];
+if (savedDishes && savedDishes.length > 0)
+    orderedDishes = savedDishes;
+
 function addDishes(dishId) {
     orderedDishes.push(dishes.find(x => x._id == dishId));
     localStorage.setItem("dishes", JSON.stringify(orderedDishes));

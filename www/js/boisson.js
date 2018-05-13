@@ -34,8 +34,12 @@ function getDrinks() {
     });
 }
 
+var savedDrinks = JSON.parse(localStorage.getItem("drinks"));
 var orderedDrinks = []; 
-function addDrinks(drinkId) {
+if (savedDrinks && savedDrinks.length > 0)
+    orderedDrinks = savedDrinks;
+
+    function addDrinks(drinkId) {
     orderedDrinks.push(drinks.find(x => x._id == drinkId));
     localStorage.setItem("drinks", JSON.stringify(orderedDrinks));
 }

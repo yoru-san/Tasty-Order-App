@@ -35,7 +35,11 @@ function getStarters() {
     });
 }
 
+var savedStarters = JSON.parse(localStorage.getItem("starters"));
 var orderedStarters = [];
+if (savedStarters && savedStarters.length > 0)
+    orderedStarters = savedStarters;
+
 function addStarters(starterId) {
     orderedStarters.push(starters.find(x => x._id == starterId));
     localStorage.setItem("starters", JSON.stringify(orderedStarters));

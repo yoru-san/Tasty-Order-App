@@ -19,7 +19,7 @@ function displayRecap() {
         completeOrder.push(element);
         $("#order").append(`<li class="list-group-item" class="${element._id}">${element.name}<i class="fas fa-times" onclick="removeElement('${element._id}', this);"></i></li>`);
     });
-    $("#priceDisplay").append(`<input type="text" value="${totalPrice} &#8364" id="price" disabled>`)
+    $("#priceDisplay").append(`<input type="text" value="${totalPrice}" id="price" disabled>`)
 }
 
 function removeElement(elementId, htmlNode) {

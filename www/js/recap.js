@@ -32,11 +32,16 @@ function postOrder() {
     var waiterId = localStorage.getItem("waiterId");
     var IP_API = localStorage.getItem("IP_API");
     var data = {};
+
     data.tableNumber = $("#numTable").val();
     data.items = completeOrder;
     data.waiter = waiterId;
     data.totalPrice = $("#price").val();
     
+    if (typeof data.tableNumber !== "number") {
+        toastr["error"]("Renseignez la table servie !");
+        return;
+    }
     $.ajax({
         type: "POST",
         url: "http://" + IP_API + "/api/orders",

@@ -43,6 +43,7 @@ if (savedStarters && savedStarters.length > 0)
 function addStarters(starterId) {
     orderedStarters.push(starters.find(x => x._id == starterId));
     localStorage.setItem("starters", JSON.stringify(orderedStarters));
+    toastr["success"]("Entrée ajoutée à la commande");
 }
 
 app.initialize();

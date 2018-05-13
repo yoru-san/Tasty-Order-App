@@ -42,6 +42,7 @@ if (savedDishes && savedDishes.length > 0)
 function addDishes(dishId) {
     orderedDishes.push(dishes.find(x => x._id == dishId));
     localStorage.setItem("dishes", JSON.stringify(orderedDishes));
+    toastr["success"]("Plat ajout&#233; &#224; la commande");
 }
 
 app.initialize();

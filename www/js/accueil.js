@@ -22,8 +22,15 @@ function getOrders() {
         }).fail(function () {
             console.log("failed to fetch orders");
         });
-    });
-    
+    }); 
+}
+
+function removeLocalstorage() {
+    localStorage.removeItem("starters");
+    localStorage.removeItem("dishes");
+    localStorage.removeItem("desserts");
+    localStorage.removeItem("drinks");
+    localStorage.removeItem("order");
 }
 
 app.initialize();

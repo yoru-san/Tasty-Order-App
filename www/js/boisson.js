@@ -42,6 +42,7 @@ if (savedDrinks && savedDrinks.length > 0)
     function addDrinks(drinkId) {
     orderedDrinks.push(drinks.find(x => x._id == drinkId));
     localStorage.setItem("drinks", JSON.stringify(orderedDrinks));
+    toastr["success"]("Boisson ajout&#233;e &#224; la commande");
 }
 
 app.initialize();

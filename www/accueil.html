@@ -15,14 +15,15 @@
             </nav>
             <div class="row text-center">
                 <div class="col-12">
-                    <a href="menu.html"><button type="button" class="btn btn-info btn-lg"> Nouvelle commande</button></a>
+                    <a href="menu.html"><button type="button" class="btn btn-info btn-lg" onclick="removeLocalstorage();"> Nouvelle commande</button></a>
                 </div>
             </div>
             <hr>
             <div class="row" id="orders"></div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.bundle.min.js" ></script>
         <script type="text/javascript" src="js/accueil.js"></script>        
     </body>

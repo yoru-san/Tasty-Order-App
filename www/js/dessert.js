@@ -42,6 +42,7 @@ if (savedDesserts && savedDesserts.length > 0)
 function addDesserts(dessertId) {
     orderedDesserts.push(desserts.find(x => x._id == dessertId));
     localStorage.setItem("desserts", JSON.stringify(orderedDesserts));
+    toastr["success"]("Dessert ajout&#233; &#224; la commande");
 }
 
 app.initialize();
